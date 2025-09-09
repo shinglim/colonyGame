@@ -1,0 +1,17 @@
+# ninja log v6
+380	517	1756054572524352016	MiniRimWorld	33226d8237c9fd26
+11	736	1754656130116888882	CMakeFiles/MiniRimWorld.dir/src/Window.cpp.o	9799db509e0bcb89
+5	74	1756653592376030662	build.ninja	4ff871d00aa2298c
+9	797	1756054537276870710	CMakeFiles/MiniRimWorld.dir/src/MainMenu.cpp.o	88942d8947fe91a6
+9	255	1756054537276295836	CMakeFiles/MiniRimWorld.dir/src/Character.cpp.o	33d64430fe06bec7
+9	925	1756054537276598544	CMakeFiles/MiniRimWorld.dir/src/Game.cpp.o	d309ac5028eea7f4
+10	798	1756054537277338167	CMakeFiles/MiniRimWorld.dir/src/main.cpp.o	a098470804168557
+522	674	1754119550255346052	SDL2Window	219106566e26eb00
+14	380	1756054572158060848	CMakeFiles/MiniRimWorld.dir/src/structures.cpp.o	123b418f470dc24
+15	495	1756653626257300274	CMakeFiles/MiniRimWorld.dir/src/structures.cpp.o	123b418f470dc24
+13	495	1756653626254980708	CMakeFiles/MiniRimWorld.dir/src/Character.cpp.o	33d64430fe06bec7
+15	982	1756653626256939735	CMakeFiles/MiniRimWorld.dir/src/Window.cpp.o	9799db509e0bcb89
+15	1110	1756653626256735986	CMakeFiles/MiniRimWorld.dir/src/MainMenu.cpp.o	88942d8947fe91a6
+15	1118	1756653626257110442	CMakeFiles/MiniRimWorld.dir/src/main.cpp.o	a098470804168557
+14	1255	1756653626256354989	CMakeFiles/MiniRimWorld.dir/src/Game.cpp.o	d309ac5028eea7f4
+1255	1426	1756653627497050309	MiniRimWorld	33226d8237c9fd26
