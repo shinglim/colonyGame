@@ -31,6 +31,7 @@ void Character::render(SDL_Renderer* renderer, int cellSize, int cameraX, int ca
     }
 }
 
+//TODO: characters target according to the grid of the original sized window and will not target beyond that area
 void Character::setTarget(int x, int y) {
     targetX = x;
     targetY = y;

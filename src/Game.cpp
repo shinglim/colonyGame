@@ -87,6 +87,28 @@ void Game::handleEvents() {
             float zoomDelta = e.wheel.y > 0 ? 0.1f : -0.1f;
             handleZoom(zoomDelta, mouseX, mouseY);
         }
+        if (e.type == SDL_MOUSEBUTTONDOWN) {
+            int gridX = mouseToGridX(e.button.x);
+            int gridY = mouseToGridY(e.button.y);
+
+            if (e.button.button == SDL_BUTTON_LEFT) {
+                selectedIndex = -1;
+                for (int i = 0; i < (int)colonists.size(); i++) {
+                    if (colonists[i]->isAt(gridX, gridY)) {
+                        selectedIndex = i;
+                        std::cout<<selectedIndex;
+                        std::cout<<"selected c"<<"\n";
+                    }
+                    colonists[i]->select(i == selectedIndex);
+                }
+            }
+
+            if (e.button.button == SDL_BUTTON_RIGHT) {
+                if (selectedIndex != -1) {
+                    colonists[selectedIndex]->setTarget(gridX, gridY);
+                }
+            }
+        }
 
         if (e.type == SDL_KEYDOWN) {
             if (e.key.keysym.sym == SDLK_g) generateMapFile(getMapPath());

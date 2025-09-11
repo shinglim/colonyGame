@@ -46,11 +46,15 @@ private:
     Window window;
     bool isRunning = false;
 
+
     int mouseToGridX(int mouseX) {
-        return cameraX + static_cast<int>(mouseX / (CELL_SIZE * cameraScale));
+        int scaledCellSize = static_cast<int>(CELL_SIZE * cameraScale);
+        return (mouseX / scaledCellSize) + cameraX;
     }
+
     int mouseToGridY(int mouseY) {
-        return cameraY + static_cast<int>(mouseY / (CELL_SIZE * cameraScale));
+        int scaledCellSize = static_cast<int>(CELL_SIZE * cameraScale);
+        return (mouseY / scaledCellSize) + cameraY;
     }
 
     std::string getMapPath() {
