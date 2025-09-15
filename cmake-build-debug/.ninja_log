@@ -1,7 +1,7 @@
 # ninja log v6
 1128	1294	1757753596211859517	MiniRimWorld	33226d8237c9fd26
 15	982	1756653626256939735	CMakeFiles/MiniRimWorld.dir/src/Window.cpp.o	9799db509e0bcb89
-5	74	1757763205981602824	build.ninja	4ff871d00aa2298c
+5	74	1757927408054136834	build.ninja	4ff871d00aa2298c
 40	1014	1757753595124404448	CMakeFiles/MiniRimWorld.dir/src/MainMenu.cpp.o	88942d8947fe91a6
 10	494	1757588739696396976	CMakeFiles/MiniRimWorld.dir/src/Character.cpp.o	33d64430fe06bec7
 38	1128	1757753595122162998	CMakeFiles/MiniRimWorld.dir/src/Game.cpp.o	d309ac5028eea7f4

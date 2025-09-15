@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 #include "Character.h"
-#include "Tile.h"
+#include "enums.h"
 #include "Window.h"
 #include <filesystem>
 #include "Game.h"

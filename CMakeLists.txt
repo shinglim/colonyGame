@@ -17,11 +17,16 @@ add_executable(MiniRimWorld ${SRC}
         src/structures.cpp
         src/Game.h
         src/Game.cpp
-        src/Tile.h
+        src/enums.h
         src/Character.cpp
         src/Character.h
         src/Cities.cpp
-        src/Cities.h)
+        src/Cities.h
+        src/Army.cpp
+        src/Army.h
+        src/Caravan.cpp
+        src/Caravan.h
+        src/enums.cpp)
 
 # --- Find SDL2 ---
 if(WIN32)

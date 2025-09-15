@@ -12,3 +12,8 @@ enum TileType {
 };
 
 
+//TODO: add functionality to convert a text file into the Items enum
+enum Items {
+
+};
+

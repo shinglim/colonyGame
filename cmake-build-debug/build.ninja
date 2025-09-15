@@ -49,6 +49,20 @@ cmake_ninja_workdir = /Users/shinglim/CLionProjects/colony/cmake-build-debug/
 
 build cmake_object_order_depends_target_MiniRimWorld: phony || .
 
+build CMakeFiles/MiniRimWorld.dir/src/Army.cpp.o: CXX_COMPILER__MiniRimWorld_unscanned_Debug /Users/shinglim/CLionProjects/colony/src/Army.cpp || cmake_object_order_depends_target_MiniRimWorld
+  DEP_FILE = CMakeFiles/MiniRimWorld.dir/src/Army.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -mmacosx-version-min=14.4 -fcolor-diagnostics
+  INCLUDES = -I/opt/homebrew/Cellar/sdl2/2.32.8/include -isystem /opt/homebrew/Cellar/sdl2/2.32.8/include/SDL2
+  OBJECT_DIR = CMakeFiles/MiniRimWorld.dir
+  OBJECT_FILE_DIR = CMakeFiles/MiniRimWorld.dir/src
+
+build CMakeFiles/MiniRimWorld.dir/src/Caravan.cpp.o: CXX_COMPILER__MiniRimWorld_unscanned_Debug /Users/shinglim/CLionProjects/colony/src/Caravan.cpp || cmake_object_order_depends_target_MiniRimWorld
+  DEP_FILE = CMakeFiles/MiniRimWorld.dir/src/Caravan.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -mmacosx-version-min=14.4 -fcolor-diagnostics
+  INCLUDES = -I/opt/homebrew/Cellar/sdl2/2.32.8/include -isystem /opt/homebrew/Cellar/sdl2/2.32.8/include/SDL2
+  OBJECT_DIR = CMakeFiles/MiniRimWorld.dir
+  OBJECT_FILE_DIR = CMakeFiles/MiniRimWorld.dir/src
+
 build CMakeFiles/MiniRimWorld.dir/src/Character.cpp.o: CXX_COMPILER__MiniRimWorld_unscanned_Debug /Users/shinglim/CLionProjects/colony/src/Character.cpp || cmake_object_order_depends_target_MiniRimWorld
   DEP_FILE = CMakeFiles/MiniRimWorld.dir/src/Character.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -mmacosx-version-min=14.4 -fcolor-diagnostics
@@ -84,6 +98,13 @@ build CMakeFiles/MiniRimWorld.dir/src/Window.cpp.o: CXX_COMPILER__MiniRimWorld_u
   OBJECT_DIR = CMakeFiles/MiniRimWorld.dir
   OBJECT_FILE_DIR = CMakeFiles/MiniRimWorld.dir/src
 
+build CMakeFiles/MiniRimWorld.dir/src/enums.cpp.o: CXX_COMPILER__MiniRimWorld_unscanned_Debug /Users/shinglim/CLionProjects/colony/src/enums.cpp || cmake_object_order_depends_target_MiniRimWorld
+  DEP_FILE = CMakeFiles/MiniRimWorld.dir/src/enums.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -mmacosx-version-min=14.4 -fcolor-diagnostics
+  INCLUDES = -I/opt/homebrew/Cellar/sdl2/2.32.8/include -isystem /opt/homebrew/Cellar/sdl2/2.32.8/include/SDL2
+  OBJECT_DIR = CMakeFiles/MiniRimWorld.dir
+  OBJECT_FILE_DIR = CMakeFiles/MiniRimWorld.dir/src
+
 build CMakeFiles/MiniRimWorld.dir/src/main.cpp.o: CXX_COMPILER__MiniRimWorld_unscanned_Debug /Users/shinglim/CLionProjects/colony/src/main.cpp || cmake_object_order_depends_target_MiniRimWorld
   DEP_FILE = CMakeFiles/MiniRimWorld.dir/src/main.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -mmacosx-version-min=14.4 -fcolor-diagnostics
@@ -106,7 +127,7 @@ build CMakeFiles/MiniRimWorld.dir/src/structures.cpp.o: CXX_COMPILER__MiniRimWor
 #############################################
 # Link the executable MiniRimWorld
 
-build MiniRimWorld: CXX_EXECUTABLE_LINKER__MiniRimWorld_Debug CMakeFiles/MiniRimWorld.dir/src/Character.cpp.o CMakeFiles/MiniRimWorld.dir/src/Cities.cpp.o CMakeFiles/MiniRimWorld.dir/src/Game.cpp.o CMakeFiles/MiniRimWorld.dir/src/MainMenu.cpp.o CMakeFiles/MiniRimWorld.dir/src/Window.cpp.o CMakeFiles/MiniRimWorld.dir/src/main.cpp.o CMakeFiles/MiniRimWorld.dir/src/structures.cpp.o | /opt/homebrew/Cellar/sdl2/2.32.8/lib/libSDL2.dylib
+build MiniRimWorld: CXX_EXECUTABLE_LINKER__MiniRimWorld_Debug CMakeFiles/MiniRimWorld.dir/src/Army.cpp.o CMakeFiles/MiniRimWorld.dir/src/Caravan.cpp.o CMakeFiles/MiniRimWorld.dir/src/Character.cpp.o CMakeFiles/MiniRimWorld.dir/src/Cities.cpp.o CMakeFiles/MiniRimWorld.dir/src/Game.cpp.o CMakeFiles/MiniRimWorld.dir/src/MainMenu.cpp.o CMakeFiles/MiniRimWorld.dir/src/Window.cpp.o CMakeFiles/MiniRimWorld.dir/src/enums.cpp.o CMakeFiles/MiniRimWorld.dir/src/main.cpp.o CMakeFiles/MiniRimWorld.dir/src/structures.cpp.o | /opt/homebrew/Cellar/sdl2/2.32.8/lib/libSDL2.dylib
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -mmacosx-version-min=14.4
   LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/Cellar/sdl2/2.32.8/lib  /opt/homebrew/Cellar/sdl2/2.32.8/lib/libSDL2.dylib
   LINK_PATH = -L/opt/homebrew/Cellar/sdl2/2.32.8/lib
