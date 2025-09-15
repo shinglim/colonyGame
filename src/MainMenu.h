@@ -18,6 +18,7 @@ public:
     bool isRunning = false;
 
 private:
+
     int screenWidth, screenHeight;
     void handleEvents();
     void update();
@@ -25,6 +26,7 @@ private:
 
     bool play = false;
     Window window;
+
 
 };
 

@@ -7,8 +7,9 @@ bool MainMenu::init() {
     if (!window.create("Mini RimWorld", 0, 0, true)) {
         return false;
     }
-//TODO: write a function to get the width and height of the window and fill in the parameters of the button below to have it centred
-    Button ContinueGameButton();
+    Button ContinueGameButton(window.getWidth()/2,window.getHeight()/2,window.getWidth()/10,window.getHeight()/10);
+
+
     isRunning = true;
     return true;
 }
@@ -41,7 +42,9 @@ void MainMenu::handleEvents() {
 
 void MainMenu::update() {}
 
-void MainMenu::render() {}
+void MainMenu::render() {
+    ContinueGameButton.render();
+}
 
 bool MainMenu::clean() {
     window.destroy();
