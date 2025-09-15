@@ -20,6 +20,12 @@ class Cities {
 private:
     int gx, gy;           // Current grid position
     bool selected;        // Is this city selected?
+    int populationSize;
+    int UrbanSize;
+    int RuralSize;
+    int ArableLand;
+    int huntableWildlife;
+
     SDL_Color color;
 };
 
