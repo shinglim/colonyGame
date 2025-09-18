@@ -17,6 +17,7 @@ public:
     bool clean();
     bool isRunning = false;
 
+
 private:
 
     int screenWidth, screenHeight;

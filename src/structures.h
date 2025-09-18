@@ -15,3 +15,16 @@ private:
     int gx, gy;
     int width, height;
 };
+
+//TODO: restructure the tile system to be able to store values like arable land
+//eventually make the map use this as the data type
+class GridZone {
+public:
+    GridZone(int gx, int gy, int arableLand, int urbanSize, int ruralSize);
+
+private:
+    int gx, gy;
+    int arableLand;
+    int urbanSize;
+    int ruralSize;
+};

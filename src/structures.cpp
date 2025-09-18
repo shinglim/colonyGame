@@ -16,3 +16,8 @@ bool Button::checkifClicked(int mouseX, int mouseY) const {
     return (mouseX >= gx && mouseX <= gx + width &&
             mouseY >= gy && mouseY <= gy + height);
 }
+
+
+
+GridZone::GridZone(int gx, int gy, int arableLand, int urbanSize, int ruralSize)
+    : gx(gx), gy(gy), arableLand(arableLand), urbanSize(urbanSize), ruralSize(ruralSize) {}

@@ -6,6 +6,9 @@
 #include "enums.h"
 #include "Window.h"
 #include <filesystem>
+#include "Caravan.h"
+#include "Army.h"
+#include "structures.h"
 
 class Game {
 public:
@@ -63,6 +66,8 @@ private:
         std::filesystem::path rootDir = exeDir.parent_path(); // one folder up from build dir
         return (rootDir / "map.txt").string();
     }
+
+    GridZone generateGridZone(int gx,int gy);
 
     void generateMapFile(const std::string& filename);
 };

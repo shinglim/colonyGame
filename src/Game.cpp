@@ -202,7 +202,6 @@ void Game::render() {
     window.present();
 }
 
-
 void Game::clean() {
     for (auto* c : colonists) delete c;
     colonists.clear();
@@ -263,3 +262,17 @@ void Game::handleZoom(float zoomDelta, int mouseX, int mouseY) {
     if (cameraX > maxCamX) cameraX = maxCamX;
     if (cameraY > maxCamY) cameraY = maxCamY;
 }
+
+GridZone generateGridZone(int gx,int gy) {
+    int arableLand;
+    int urbanSize;
+    int ruralSize;
+
+    arableLand = rand() % 300;
+    urbanSize = rand() % 100;
+    ruralSize = rand() % 100;
+
+
+    return GridZone (gx, gy, arableLand, urbanSize, ruralSize);
+}
+//TODO: create a function that generates and returns each gridzone individually as well as modifying the map read/write functions to handle the new data type

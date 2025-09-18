@@ -43,7 +43,7 @@ void MainMenu::handleEvents() {
 void MainMenu::update() {}
 
 void MainMenu::render() {
-    ContinueGameButton.render();
+    //ContinueGameButton.render();
 }
 
 bool MainMenu::clean() {

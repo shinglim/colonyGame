@@ -12,7 +12,7 @@ enum TileType {
 };
 
 
-//TODO: add functionality to convert a text file into the Items enum
+//TODO: add functionality to convert a save file into the Items enum and do the same for general save
 enum Items {
 
 };
