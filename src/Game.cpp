@@ -1,8 +1,11 @@
 #include "Game.h"
-#include <iostream>
-#include <fstream>
-#include <cstdlib>
-#include <ctime>
+#include <string>      // std::string, std::to_string
+#include <fstream>     // std::ofstream
+#include <iostream>    // std::cerr, std::cout
+#include <cstdlib>     // rand(), srand()
+#include <ctime>       // time()
+#include <filesystem>  // std::filesystem::absolute
+
 // C++17 for root path handling
 
 Game::~Game() {
@@ -15,7 +18,8 @@ bool Game::init() {
     }
 
     // Allocate heap memory for the map
-    world.resize(GRID_SIZE, std::vector<int>(GRID_SIZE, 0));
+    world.resize(GRID_SIZE, std::vector<GridZone>(GRID_SIZE));
+
 
     if (!loadMapFromFile(getMapPath())) {
         std::cerr << "Failed to load map from: " << getMapPath() << "\nGenerating new map.\n";
@@ -49,20 +53,10 @@ bool Game::loadMapFromFile(const std::string& filename) {
         return loadMapFromFile(filename);
     }
 
-    world.resize(GRID_SIZE, std::vector<int>(GRID_SIZE, 0));
-
-    for (int y = 0; y < GRID_SIZE; ++y) {
-        for (int x = 0; x < GRID_SIZE; ++x) {
-            int tileType;
-            if (!(file >> tileType)) {
-                std::cerr << "Error: Invalid data in " << filename << "\n";
-                return false;
-            }
-            world[y][x] = tileType;
-        }
-    }
-
+    world.resize(GRID_SIZE, std::vector<GridZone>(GRID_SIZE));
     file.close();
+
+    loadMapFromJson(filename);
     return true;
 }
 
@@ -184,7 +178,7 @@ void Game::render() {
                 scaledCellSize
             };
 
-            switch (world[y][x]) {
+            switch (world[y][x].getTileType()) {
                 case GRASS: SDL_SetRenderDrawColor(renderer, 0, 180, 0, 255); break;
                 case DIRT:  SDL_SetRenderDrawColor(renderer, 139, 69, 19, 255); break;
                 case WATER: SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255); break;
@@ -223,15 +217,18 @@ void Game::generateMapFile(const std::string& filename) {
     for (int y = 0; y < GRID_SIZE; ++y) {
         for (int x = 0; x < GRID_SIZE; ++x) {
             int seed = rand() % 100;
-            int tileType;
-            if (seed < 60) tileType = 0;       // Grass
-            else if (seed < 90) tileType = 1;  // Dirt
-            else tileType = 2;                 // Water
+            TileType tileType = (seed > 30) ? TileType::GRASS : TileType::WATER;
 
-            file << tileType;
-            if (x < GRID_SIZE - 1) file << " ";
+            GridZone nextGridZone = generateGridZone(y, x, tileType);
+
+            file << "  " << nextGridZone.toJson();
+
+            // Comma except after last element
+            if (!(x == GRID_SIZE - 1 && y == GRID_SIZE - 1)) {
+                file << ",";
+            }
+            file << "\n";
         }
-        file << "\n";
     }
 
     file.close();
@@ -263,16 +260,55 @@ void Game::handleZoom(float zoomDelta, int mouseX, int mouseY) {
     if (cameraY > maxCamY) cameraY = maxCamY;
 }
 
-GridZone generateGridZone(int gx,int gy) {
-    int arableLand;
-    int urbanSize;
-    int ruralSize;
-
-    arableLand = rand() % 300;
-    urbanSize = rand() % 100;
-    ruralSize = rand() % 100;
+GridZone Game::generateGridZone(int gx,int gy, TileType tileType) {
+    int arableLand = rand() % 300;
+    int urbanSize = rand() % 100;
+    int ruralSize = rand() % 100;
 
 
-    return GridZone (gx, gy, arableLand, urbanSize, ruralSize);
+    return GridZone (gx, gy, arableLand, urbanSize, ruralSize, tileType);
 }
+
+bool Game::loadMapFromJson(const std::string& filename) {
+    std::ifstream file(filename);
+    if (!file.is_open()) {
+        std::cerr << "Error: Cannot open " << filename << "\n";
+        return false;
+    }
+
+    int fileGridSize;
+    file >> fileGridSize;  // first line is grid size
+    if (fileGridSize != GRID_SIZE) {
+        std::cerr << "Grid size mismatch: file=" << fileGridSize
+                  << ", expected=" << GRID_SIZE << "\n";
+        return false;
+    }
+
+    // prepare the world grid
+    world.clear();
+    world.resize(GRID_SIZE, std::vector<GridZone>(GRID_SIZE));
+
+    std::string line;
+    while (std::getline(file, line)) {
+        if (line.find('{') != std::string::npos) {
+            int gx, gy, arableLand, urbanSize, ruralSize, tileType;
+
+            // Parse exactly the format we saved in toJson()
+            if (sscanf(line.c_str(),
+                       " { \"gx\": %d, \"gy\": %d, \"arableLand\": %d, \"urbanSize\": %d, \"ruralSize\": %d, \"tileType\": %d }",
+                       &gx, &gy, &arableLand, &urbanSize, &ruralSize, &tileType) == 6) {
+                if (gx >= 0 && gx < GRID_SIZE && gy >= 0 && gy < GRID_SIZE) {
+                    world[gy][gx] = GridZone(
+                        gx, gy, arableLand, urbanSize, ruralSize,
+                        static_cast<TileType>(tileType)
+                    );
+                }
+                       }
+        }
+    }
+
+    file.close();
+    return true;
+}
+
 //TODO: create a function that generates and returns each gridzone individually as well as modifying the map read/write functions to handle the new data type

@@ -38,11 +38,11 @@ private:
     int selectedIndex = -1;
 
     // Game.h
-    static constexpr int GRID_SIZE = 500;
+    static constexpr int GRID_SIZE = 100;
     static const int CELL_SIZE = 8;
 
     // Heap-allocated 2D array
-    std::vector<std::vector<int>> world;
+    std::vector<std::vector<GridZone>> world;
 
     std::vector<Character*> colonists;
 
@@ -67,7 +67,9 @@ private:
         return (rootDir / "map.txt").string();
     }
 
-    GridZone generateGridZone(int gx,int gy);
+    GridZone generateGridZone(int gx,int gy, TileType tileType);
 
     void generateMapFile(const std::string& filename);
+
+    bool loadMapFromJson(const std::string& filename);
 };

@@ -19,5 +19,3 @@ bool Button::checkifClicked(int mouseX, int mouseY) const {
 
 
 
-GridZone::GridZone(int gx, int gy, int arableLand, int urbanSize, int ruralSize)
-    : gx(gx), gy(gy), arableLand(arableLand), urbanSize(urbanSize), ruralSize(ruralSize) {}
